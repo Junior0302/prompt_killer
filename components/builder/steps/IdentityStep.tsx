@@ -37,8 +37,9 @@ export const IdentityStep = () => {
       <div className="space-y-6">
         {/* Nom du Projet */}
         <div>
-          <label className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">Nom du Projet</label>
+          <label htmlFor="projectName" className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">Nom du Projet</label>
           <input
+            id="projectName"
             type="text"
             className="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 focus:ring-2 focus:ring-purple-500 outline-none transition-all text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-600"
             placeholder="ex: Nexus Portfolio 2024"
@@ -49,7 +50,7 @@ export const IdentityStep = () => {
 
         {/* Secteur / Niche (Grid de boutons) */}
         <div>
-          <label className="block text-sm font-medium mb-3 text-neutral-700 dark:text-neutral-300">Secteur / Niche</label>
+          <h3 className="block text-sm font-medium mb-3 text-neutral-700 dark:text-neutral-300">Secteur / Niche</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {INDUSTRIES.map((ind) => (
               <button
@@ -71,7 +72,7 @@ export const IdentityStep = () => {
 
         {/* Type de Projet (Grid de boutons) */}
         <div>
-          <label className="block text-sm font-medium mb-3 text-neutral-700 dark:text-neutral-300">Type de Projet</label>
+          <h3 className="block text-sm font-medium mb-3 text-neutral-700 dark:text-neutral-300">Type de Projet</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {PROJECT_TYPES.map((type) => (
               <button
@@ -93,10 +94,11 @@ export const IdentityStep = () => {
 
         {/* Notes (Optionnel) */}
         <div>
-          <label className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">
+          <label htmlFor="details" className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">
             Détails supplémentaires <span className="text-neutral-400 font-normal">(Optionnel)</span>
           </label>
           <textarea
+            id="details"
             className="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 h-24 focus:ring-2 focus:ring-purple-500 outline-none transition-all resize-none text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-600 text-sm"
             placeholder="Objectifs spécifiques, public cible..."
             value={manifest.identity.description}

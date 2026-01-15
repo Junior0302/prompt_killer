@@ -54,7 +54,7 @@ export const ArtDirectionStep = () => {
 
       {/* Vibe Selection */}
       <div className="space-y-3">
-        <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Ambiance (Choix multiples)</label>
+        <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Ambiance (Choix multiples)</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {VIBES.map((item) => (
             <button
@@ -75,7 +75,7 @@ export const ArtDirectionStep = () => {
 
       {/* Color Palette */}
       <div className="space-y-3">
-        <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Palette de Couleurs</label>
+        <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Palette de Couleurs</h3>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           {PALETTES.map((item) => (
             <button
@@ -97,7 +97,7 @@ export const ArtDirectionStep = () => {
 
        {/* Motion Level */}
        <div className="space-y-3">
-        <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Niveau d'Animation & Interactivité</label>
+        <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Niveau d'Animation & Interactivité</h3>
         <div className="flex bg-neutral-100 dark:bg-neutral-900 p-1 rounded-lg border border-neutral-200 dark:border-neutral-800">
           {MOTION_LEVELS.map((level) => (
              <button

@@ -12,10 +12,14 @@ export const ResultsStep = () => {
 
   if (!generatedOutput) return null;
 
-  let content = activeTab === 'ai' ? generatedOutput.aiPrompt 
-    : activeTab === 'designer' ? generatedOutput.designerPrompt 
-    : activeTab === 'developer' ? generatedOutput.developerPrompt
-    : generatedOutput.combinedPrompt || '';
+  const getContent = () => {
+    if (activeTab === 'ai') return generatedOutput.aiPrompt;
+    if (activeTab === 'designer') return generatedOutput.designerPrompt;
+    if (activeTab === 'developer') return generatedOutput.developerPrompt;
+    return generatedOutput.combinedPrompt || '';
+  };
+
+  let content = getContent();
 
   // Handle case where content is returned as an object (JSON) by the AI
   if (typeof content === 'object') {

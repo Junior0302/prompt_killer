@@ -62,11 +62,12 @@ export const TechStep = () => {
             className="space-y-4 pt-4 border-t border-neutral-100 dark:border-neutral-800"
           >
             <div>
-              <label className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">Style 3D</label>
+              <label htmlFor="style3d" className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">Style 3D</label>
               <select
+                id="style3d"
                 className="w-full bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-lg p-3 outline-none text-neutral-900 dark:text-white"
                 value={manifest.threeD.style}
-                onChange={(e) => setThreeD({ style: e.target.value as any })}
+                onChange={(e) => setThreeD({ style: e.target.value as 'abstract_shapes' | 'realistic' | 'low-poly' | 'particles' })}
               >
                 <option value="abstract_shapes">Formes Abstraites</option>
                 <option value="realistic">Réaliste / Produit</option>
@@ -76,7 +77,7 @@ export const TechStep = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">Cible de Performance</label>
+              <h3 className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">Cible de Performance</h3>
               <div className="grid grid-cols-3 gap-3">
                 {PERFORMANCE_TARGETS.map((p) => (
                    <button

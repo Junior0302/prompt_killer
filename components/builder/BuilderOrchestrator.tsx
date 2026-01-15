@@ -86,29 +86,24 @@ export const BuilderOrchestrator = () => {
           >
             Suivant <ArrowRight className="w-4 h-4" />
           </button>
-        ) : step === 3 ? (
-          <button
-            onClick={handleGenerate}
-            disabled={isGenerating}
-            className="px-8 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:opacity-90 font-bold flex items-center gap-2 shadow-lg shadow-purple-900/20"
-          >
-            {isGenerating ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin" /> Architecture en cours...
-              </>
-            ) : (
-              <>
-                <Wand2 className="w-4 h-4" /> Générer le Manifeste
-              </>
-            )}
-          </button>
         ) : (
-          <button
-            onClick={() => setStep(1)} // Reset logic could go here
-            className="px-6 py-2 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
-          >
-            Nouveau Projet
-          </button>
+          step === 3 && (
+            <button
+              onClick={handleGenerate}
+              disabled={isGenerating}
+              className="px-8 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:opacity-90 font-bold flex items-center gap-2 shadow-lg shadow-purple-900/20"
+            >
+              {isGenerating ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" /> Architecture en cours...
+                </>
+              ) : (
+                <>
+                  <Wand2 className="w-4 h-4" /> Générer
+                </>
+              )}
+            </button>
+          )
         )}
       </div>
       
