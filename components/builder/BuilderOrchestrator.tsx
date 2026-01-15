@@ -4,7 +4,7 @@ import { IdentityStep } from './steps/IdentityStep';
 import { ArtDirectionStep } from './steps/ArtDirectionStep';
 import { TechStep } from './steps/TechStep';
 import { ResultsStep } from './steps/ResultsStep';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { Loader2, ArrowRight, ArrowLeft, Wand2 } from 'lucide-react';
 import { useState } from 'react';
 

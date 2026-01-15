@@ -42,8 +42,8 @@ export function ProductShowcase() {
           La Logique derrière Aether
         </h2>
         <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          Aether Prompt Studio n'est pas un simple générateur de texte. C'est un 
-          <span className="font-semibold text-neutral-900 dark:text-white"> orchestrateur de vision</span> qui traduit l'abstrait en concret.
+          Aether Prompt Studio n'est pas un simple générateur de texte. C'est un{' '}
+          <span className="font-semibold text-neutral-900 dark:text-white">orchestrateur de vision</span> qui traduit l'abstrait en concret.
         </p>
       </motion.div>
 

@@ -113,8 +113,9 @@ export const TechStep = () => {
                 />
             </div>
             <div>
-                <label className="block text-sm font-medium mb-1 text-neutral-700 dark:text-neutral-300">Style (CSS)</label>
+                <label htmlFor="styling" className="block text-sm font-medium mb-1 text-neutral-700 dark:text-neutral-300">Style (CSS)</label>
                 <input 
+                    id="styling"
                     type="text" 
                     value={manifest.tech.styling}
                     onChange={(e) => setTech({ styling: e.target.value })}
