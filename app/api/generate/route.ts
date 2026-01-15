@@ -1,6 +1,34 @@
 import { OpenAI } from 'openai';
 import { ProjectManifest } from '@/types';
 import { NextResponse } from 'next/server';
+import { z } from 'zod';
+
+// Validation Schema
+const ManifestSchema = z.object({
+  identity: z.object({
+    name: z.string().optional(),
+    industry: z.string().optional(),
+    projectType: z.string().optional(),
+    description: z.string().optional(),
+  }),
+  artDirection: z.object({
+    vibe: z.array(z.string()).optional(),
+    colorPalette: z.string().optional(),
+    typography: z.string().optional(),
+    motionLevel: z.string().optional(),
+  }),
+  threeD: z.object({
+    isEnabled: z.boolean().optional(),
+    style: z.string().optional(),
+    lighting: z.string().optional(),
+    performanceConstraint: z.string().optional(),
+  }),
+  tech: z.object({
+    framework: z.string().optional(),
+    styling: z.string().optional(),
+    threeLibrary: z.string().optional(),
+  }),
+});
 
 // FIX: Disable SSL verification for local development to avoid "UNABLE_TO_GET_ISSUER_CERT_LOCALLY" errors
 // This is often required in corporate environments or when local CA certificates are missing.
@@ -15,6 +43,17 @@ const openai = new OpenAI({
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    
+    // Validate input with Zod
+    const validationResult = ManifestSchema.safeParse(body.manifest);
+    
+    if (!validationResult.success) {
+      return NextResponse.json(
+        { error: 'Invalid manifest data', details: validationResult.error.format() },
+        { status: 400 }
+      );
+    }
+
     const manifest: ProjectManifest = body.manifest;
 
     if (!manifest) {

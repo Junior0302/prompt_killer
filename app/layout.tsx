@@ -7,8 +7,14 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aether Prompt Studio",
-  description: "Architecte de Prompts IA Professionnel pour le Web 3D & Premium",
+  title: "Aether Prompt Studio | Générateur de Prompts 3D Premium",
+  description: "Transformez vos idées en spécifications techniques et créatives pour des sites web 3D primés. Outil professionnel pour designers et développeurs.",
+  openGraph: {
+    title: 'Aether Prompt Studio',
+    description: 'Architecte de Prompts IA Professionnel pour le Web 3D',
+    locale: 'fr_FR',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

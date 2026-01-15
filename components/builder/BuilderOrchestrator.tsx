@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Loader2, ArrowRight, ArrowLeft, Wand2 } from 'lucide-react';
 import { useState } from 'react';
 
+import { generatePrompts } from '@/services/prompt.service';
+
 export const BuilderOrchestrator = () => {
   const { step, setStep, manifest, isGenerating, setGenerating, setGeneratedOutput } = useProjectStore();
   const [error, setError] = useState<string | null>(null);
@@ -16,15 +18,7 @@ export const BuilderOrchestrator = () => {
     setGenerating(true);
     setError(null);
     try {
-      const response = await fetch('/api/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ manifest }),
-      });
-      
-      if (!response.ok) throw new Error('Generation failed');
-      
-      const data = await response.json();
+      const data = await generatePrompts(manifest);
       setGeneratedOutput(data);
       setStep(4);
     } catch (err) {
