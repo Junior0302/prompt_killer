@@ -30,12 +30,6 @@ const ManifestSchema = z.object({
   }),
 });
 
-// FIX: Disable SSL verification for local development to avoid "UNABLE_TO_GET_ISSUER_CERT_LOCALLY" errors
-// This is often required in corporate environments or when local CA certificates are missing.
-if (process.env.NODE_ENV === 'development') {
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-}
-
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || 'sk-placeholder',
 });
