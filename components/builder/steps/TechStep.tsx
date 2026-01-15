@@ -104,8 +104,9 @@ export const TechStep = () => {
         <h3 className="font-semibold text-lg text-neutral-900 dark:text-white">Stack Technique</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <label className="block text-sm font-medium mb-1 text-neutral-700 dark:text-neutral-300">Framework</label>
+                <label htmlFor="framework" className="block text-sm font-medium mb-1 text-neutral-700 dark:text-neutral-300">Framework</label>
                 <input 
+                    id="framework"
                     type="text" 
                     value={manifest.tech.framework}
                     onChange={(e) => setTech({ framework: e.target.value })}
